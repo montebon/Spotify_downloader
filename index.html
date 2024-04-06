@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Downloader</title>
+    <style>
+        body {
+            font-family: "Circular", "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #191414; /* Spotify's background color */
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            background-color: #000; /* Spotify's container background color */
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .header img {
+            width: 40px;
+            margin-right: 10px;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            color: #1db954; /* Spotify's primary color */
+            margin: 0;
+        }
+
+        .form {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 10px;
+            border: 1px solid #000; /* Spotify's input border color */
+            border-radius: 25px; /* Spotify's input border radius */
+            font-size: 16px;
+            background-color: #535353; /* Spotify's input background color */
+            color: #fff;
+            padding-left: 20px;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #1db954; /* Spotify's primary color */
+            color: #fff;
+            border: none;
+            border-radius: 25px; /* Spotify's button border radius */
+            font-size: 16px;
+            outline: none;
+            width: 120px;
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #888;
+        }
+
+        @media only screen and (max-width: 600px) {
+            input[type="text"] {
+                width: calc(100% - 40px);
+            }
+            button {
+                width: calc(100% - 20px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="images.png" alt="Spotify Logo">
+            <h1>Spotify Downloader</h1>
+        </div>
+        <div class="form">
+            <input type="text" id="title" placeholder="Enter song title">
+            <button onclick="downloadSong()">Download</button>
+        </div>
+        <div class="result" id="result"></div>
+        <footer>Developed by <a href="https://facebook.com/learnfromber">Berwin</a></footer>
+    </div>
+
+    <script>
+        function downloadSong() {
+            const title = document.getElementById('title').value;
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '';
+
+            if (!title) {
+                resultDiv.innerText = 'Please enter a song title';
+                return;
+            }
+
+            fetch(`https://localhostdev-apis.vercel.app/spotify?title=${title}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.error) {
+                        resultDiv.innerText = data.error;
+                    } else if (data.downloadUrl && data.downloadUrl.result) {
+                        const downloadUrl = data.downloadUrl.result;
+                        // Automatically initiate download by setting window location
+                        window.location.href = downloadUrl;
+                    } else {
+                        resultDiv.innerText = 'Download URL not found';
+                    }
+                })
+                .catch(error => {
+                    console.error('There was a problem with the fetch operation:', error);
+                    resultDiv.innerText = 'An error occurred while fetching data';
+                });
+        }
+    </script>
+</body>
+</html>
