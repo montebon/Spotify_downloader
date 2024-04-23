@@ -1,32 +1,30 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spotify Downloader</title>
-    <style>
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Spotify Downloader</title> 
+  <style>
         body {
             font-family: "Circular", "Helvetica Neue", Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #191414; /* Spotify's background color */
+            background-color: black; /* Spotify's background color */
             color: #fff;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
         }
-
+        
         .container {
-            width: 90%;
-            max-width: 600px;
+            width: 88%;
+            max-width: 500px;
             background-color: #000; /* Spotify's container background color */
             border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 0px 35px rgba(25, 26, 255, 5);
             padding: 20px;
             text-align: center;
         }
-
         .header {
             display: flex;
             align-items: center;
@@ -37,12 +35,14 @@
         .header img {
             width: 40px;
             margin-right: 10px;
+            opacity: 75%;
         }
 
         .header h1 {
-            font-size: 24px;
+            font-size: 25px;
             color: #1db954; /* Spotify's primary color */
             margin: 0;
+            text-shadow: 0px 0px 14px rgba(90, 255, 90, 1.2);
         }
 
         .form {
@@ -58,9 +58,10 @@
             margin-bottom: 10px;
             border: 1px solid #000; /* Spotify's input border color */
             border-radius: 25px; /* Spotify's input border radius */
+            box-shadow: 0px 0px 18px rgba(25, 25, 255, 1.5);
             font-size: 16px;
-            background-color: #535353; /* Spotify's input background color */
-            color: #fff;
+            background-color: #000; /*535353 Spotify's input background color */
+            color: lightskyblue;
             padding-left: 20px;
             outline: none;
             box-sizing: border-box;
@@ -69,10 +70,11 @@
         button {
             padding: 10px 20px;
             cursor: pointer;
-            background-color: #1db954; /* Spotify's primary color */
+            background-color: #1db954; /* 1db954 Spotify's primary color */
             color: #fff;
             border: none;
-            border-radius: 25px; /* Spotify's button border radius */
+            border-radius: 20px; /* Spotify's button border radius */
+            box-shadow: 0px 0px 10px rgba(90, 255, 90, 0.5);
             font-size: 16px;
             outline: none;
             width: 120px;
@@ -83,7 +85,36 @@
             font-size: 14px;
             color: #888;
         }
+        
+        footer {
+            font-size: 12px;
+            color: red;
+            text-align: center;
+            animation: glow 2.5s infinite alternate;
+        }
+        
+        @keyframes glow {
+        0% { color: red; text-shadow: 0 0 5px red; }
+        25% { color: blue; text-shadow: 0 0 5px blue; }
+        50% { color: green; text-shadow: 0 0 5px green; }
+        75% { color: skyblue; text-shadow: 0 0 5px skyblue; }
+        100% { color: red; text-shadow: 0 0 5px red; }
+         }
 
+        a {
+            font-size: 12px;
+            color: red;
+            text-align: center;
+            animation: glow 2.5s infinite alternate;
+        }
+
+        @keyframes glow {
+        0% { color: red; text-shadow: 0 0 5px red; }
+        25% { color: blue; text-shadow: 0 0 5px blue; }
+        50% { color: green; text-shadow: 0 0 5px green; }
+        75% { color: skyblue; text-shadow: 0 0 5px skyblue; }
+        100% { color: red; text-shadow: 0 0 5px red; }
+        }
         @media only screen and (max-width: 600px) {
             input[type="text"] {
                 width: calc(100% - 40px);
@@ -92,181 +123,61 @@
                 width: calc(100% - 20px);
             }
         }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="header">
-            <img src="images.png" alt="Spotify Logo">
-            <h1>Spotify Downloader</h1>
-        </div>
-        <div class="form">
-            <input type="text" id="title" placeholder="Enter song title">
-            <button onclick="downloadSong()">Download</button>
-        </div>
-        <div class="result" id="result"></div>
-        <footer>Developed by <a href='https://www.facebook.com/profile.php?id=100015077388422' target='_blank'>SamTzy</a></footer>
-    </div>
+        
 
-    <script>
-        function _0x2fff() {
-    const _0x595cde = [
-        'href',
-        'https://sh',
-        '2189308qWUZsi',
-        'value',
-        'zvJzs',
-        'Network\x20re',
-        'ng\x20data',
-        'then',
-        'error',
-        'lFcch',
-        '562497WmgYZx',
-        'with\x20the\x20f',
-        'downloadUr',
-        'location',
-        'result',
-        'Please\x20ent',
-        'sponse\x20was',
-        '4482174EroYPh',
-        '817865GOLHwF',
-        'json',
-        'GZUrW',
-        'title',
-        'er\x20a\x20song\x20',
-        'spotify?ti',
-        'arley-usel',
-        'tle=',
-        'jnoUH',
-        'There\x20was\x20',
-        'ById',
-        'tion:',
-        'getElement',
-        '32975776VFjVYE',
-        'YzFGK',
-        'Download\x20U',
-        'innerHTML',
-        'a\x20problem\x20',
-        'ile\x20fetchi',
-        '789839ETCjRO',
-        'ess-apis.v',
-        '\x20not\x20ok',
-        'innerText',
-        'etch\x20opera',
-        'zRxFh',
-        '18aLMzmn',
-        'Rugfp',
-        'An\x20error\x20o',
-        'RL\x20not\x20fou',
-        'ercel.app/',
-        'HHjBe',
-        '7558894hEJdSv',
-        'ccurred\x20wh',
-        'catch'
-    ];
-    _0x2fff = function () {
-        return _0x595cde;
-    };
-    return _0x2fff();
-}
-function _0x4d8c(_0x52f860, _0x1b8e98) {
-    const _0x1aa7c4 = _0x2fff();
-    return _0x4d8c = function (_0x360541, _0x2e9b6f) {
-        _0x360541 = _0x360541 - (0x9d * 0x11 + 0x1 * 0xe3b + -0x3 * 0x7ee);
-        let _0x73b508 = _0x1aa7c4[_0x360541];
-        return _0x73b508;
-    }, _0x4d8c(_0x52f860, _0x1b8e98);
-}
-(function (_0xe36b1f, _0x4d4ba0) {
-    const _0x2992a1 = {
-            _0x18876b: 0x10d,
-            _0x13fcdc: 0xdf,
-            _0x3307bd: 0xf2,
-            _0x33e2bd: 0xea,
-            _0x46f79e: 0xe5
-        }, _0x3d5251 = _0x4d8c, _0x1d130e = _0xe36b1f();
-    while (!![]) {
-        try {
-            const _0x4b14a4 = -parseInt(_0x3d5251(_0x2992a1._0x18876b)) / (-0x6 * 0x511 + -0x6b7 + 0x1 * 0x251e) + -parseInt(_0x3d5251(_0x2992a1._0x13fcdc)) / (0x23 * 0x93 + 0x2 * -0x4d6 + -0xa6b) * (parseInt(_0x3d5251(_0x2992a1._0x3307bd)) / (-0x1181 + -0x5c * -0x4 + 0x1014)) + -parseInt(_0x3d5251(_0x2992a1._0x33e2bd)) / (-0x1 * 0x1e65 + 0x3 * -0xa57 + 0x3d6e) + parseInt(_0x3d5251(0xfa)) / (-0x11 * -0x101 + 0x53 * -0x27 + 0x1 * -0x467) + parseInt(_0x3d5251(0xf9)) / (-0x3d2 + -0x2451 + 0x2829) + -parseInt(_0x3d5251(_0x2992a1._0x46f79e)) / (-0x1da0 + 0x3 * 0xa31 + 0x4 * -0x3b) + parseInt(_0x3d5251(0x107)) / (-0x1fee + -0x11b3 + 0x31a9);
-            if (_0x4b14a4 === _0x4d4ba0)
-                break;
-            else
-                _0x1d130e['push'](_0x1d130e['shift']());
-        } catch (_0x129be9) {
-            _0x1d130e['push'](_0x1d130e['shift']());
-        }
-    }
-}(_0x2fff, -0x38286 + 0x3 * 0x66c07 + -0x1d * 0xe14));
-function downloadSong() {
-    const _0x275912 = {
-            _0x110a84: 0xf8,
-            _0x1509b4: 0x10f,
-            _0x687cd: 0x109,
-            _0x33090a: 0xe2,
-            _0x49441d: 0x103,
-            _0x3f4881: 0x111,
-            _0x36f893: 0xe6,
-            _0x277429: 0xfd,
-            _0x36df34: 0xf6,
-            _0x336a71: 0xf7,
-            _0x45c7f4: 0xfe,
-            _0x1b7a49: 0x104,
-            _0x3c9d3d: 0x108,
-            _0x48ba8f: 0x10a,
-            _0x1bf4b9: 0x110,
-            _0x15cc37: 0xe0,
-            _0x1be7c8: 0x100,
-            _0x33da21: 0x10e,
-            _0x2b0485: 0xe3
-        }, _0x1c743c = {
-            _0x189cba: 0xf0,
-            _0x2acc9f: 0x110,
-            _0x209703: 0xec
-        }, _0x541543 = {
-            _0x4898e2: 0x110,
-            _0x3d1435: 0xf4,
-            _0x1a65c1: 0xf6,
-            _0xc8c166: 0xf5,
-            _0x553e6e: 0xe8,
-            _0x32f91d: 0xfc
-        }, _0x5a6b73 = _0x4d8c, _0x255756 = {
-            'jnoUH': _0x5a6b73(0xed) + _0x5a6b73(_0x275912._0x110a84) + _0x5a6b73(_0x275912._0x1509b4),
-            'GZUrW': _0x5a6b73(_0x275912._0x687cd) + _0x5a6b73(_0x275912._0x33090a) + 'nd',
-            'HHjBe': _0x5a6b73(_0x275912._0x49441d) + _0x5a6b73(0x10b) + _0x5a6b73(0xf3) + _0x5a6b73(_0x275912._0x3f4881) + _0x5a6b73(0x105),
-            'zvJzs': _0x5a6b73(0xe1) + _0x5a6b73(_0x275912._0x36f893) + _0x5a6b73(0x10c) + _0x5a6b73(0xee),
-            'YzFGK': _0x5a6b73(_0x275912._0x277429),
-            'lFcch': _0x5a6b73(_0x275912._0x36df34),
-            'Rugfp': _0x5a6b73(_0x275912._0x336a71) + _0x5a6b73(_0x275912._0x45c7f4) + _0x5a6b73(0xfd),
-            'zRxFh': function (_0x290a8d, _0xf33636) {
-                return _0x290a8d(_0xf33636);
+
+</style> 
+ </head> 
+ <body> 
+  <div class="container"> 
+   <div class="header"> 
+    <img src="images.png" alt="Spotify Logo"> 
+    <h1>Spotify Downloader</h1> 
+   </div> 
+   <div class="form"> 
+    <input type="text" id="title" placeholder="Enter song title"> 
+    <button onclick="downloadSong()">Download</button> 
+   </div> 
+   <div class="result" id="result"></div> 
+   <footer>
+    Developed by 
+    <a href="https://www.facebook.com/profile.php?id=100015077388422" target="_blank">SamTzy</a>
+   </footer> 
+  </div> 
+  <script>
+        function downloadSong() {
+            const title = document.getElementById('title').value;
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '';
+
+            if (!title) {
+                resultDiv.innerText = 'Please enter a song title';
+                return;
             }
-        }, _0x2ff124 = document[_0x5a6b73(0x106) + _0x5a6b73(_0x275912._0x1b7a49)](_0x255756[_0x5a6b73(_0x275912._0x3c9d3d)])[_0x5a6b73(0xeb)], _0x30ca13 = document[_0x5a6b73(0x106) + _0x5a6b73(0x104)](_0x255756[_0x5a6b73(0xf1)]);
-    _0x30ca13[_0x5a6b73(_0x275912._0x48ba8f)] = '';
-    if (!_0x2ff124) {
-        _0x30ca13[_0x5a6b73(_0x275912._0x1bf4b9)] = _0x255756[_0x5a6b73(_0x275912._0x15cc37)];
-        return;
-    }
-    _0x255756[_0x5a6b73(0xde)](fetch, _0x5a6b73(0xe9) + _0x5a6b73(_0x275912._0x1be7c8) + _0x5a6b73(_0x275912._0x33da21) + _0x5a6b73(_0x275912._0x2b0485) + _0x5a6b73(0xff) + _0x5a6b73(0x101) + _0x2ff124)[_0x5a6b73(0xef)](_0x117a64 => {
-        const _0x2bf81b = _0x5a6b73;
-        if (!_0x117a64['ok'])
-            throw new Error(_0x255756[_0x2bf81b(0x102)]);
-        return _0x117a64[_0x2bf81b(0xfb)]();
-    })[_0x5a6b73(0xef)](_0x52d370 => {
-        const _0xa4d3a8 = _0x5a6b73;
-        if (_0x52d370[_0xa4d3a8(0xf0)])
-            _0x30ca13[_0xa4d3a8(_0x541543._0x4898e2)] = _0x52d370[_0xa4d3a8(0xf0)];
-        else {
-            if (_0x52d370[_0xa4d3a8(0xf4) + 'l'] && _0x52d370[_0xa4d3a8(0xf4) + 'l'][_0xa4d3a8(0xf6)]) {
-                const _0x3b9191 = _0x52d370[_0xa4d3a8(_0x541543._0x3d1435) + 'l'][_0xa4d3a8(_0x541543._0x1a65c1)];
-                window[_0xa4d3a8(_0x541543._0xc8c166)][_0xa4d3a8(_0x541543._0x553e6e)] = _0x3b9191;
-            } else
-                _0x30ca13[_0xa4d3a8(0x110)] = _0x255756[_0xa4d3a8(_0x541543._0x32f91d)];
+
+            fetch(`https://localhostdev-apis.vercel.app/spotify?title=${title}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.error) {
+                        resultDiv.innerText = data.error;
+                    } else if (data.downloadUrl && data.downloadUrl.result) {
+                        const downloadUrl = data.downloadUrl.result;
+                        // Automatically initiate download by setting window location
+                        window.location.href = downloadUrl;
+                    } else {
+                        resultDiv.innerText = 'Download URL not found';
+                    }
+                })
+                .catch(error => {
+                    console.error('There was a problem with the fetch operation:', error);
+                    resultDiv.innerText = 'An error occurred while fetching data';
+                });
         }
-    })[_0x5a6b73(0xe7)](_0x5aa4a6 => {
-        const _0x5d4319 = _0x5a6b73;
-        console[_0x5d4319(_0x1c743c._0x189cba)](_0x255756[_0x5d4319(0xe4)], _0x5aa4a6), _0x30ca13[_0x5d4319(_0x1c743c._0x2acc9f)] = _0x255756[_0x5d4319(_0x1c743c._0x209703)];
-    });
-        }
-    </script>
-</body>
+    </script> 
+ </body>
 </html>
